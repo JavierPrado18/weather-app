@@ -1,11 +1,10 @@
-import axios from 'axios'
-import { Suspense, useEffect, useState } from 'react'
+import axios from "axios";
+import {useEffect, useState } from "react";
 
-import './App.css'
-import Card from './components/Card'
+import "./App.css";
+import Card from "./components/Card";
 
 function App() {
-  
   const [area, setArea] = useState("");
   const areas = {
     "01d":
@@ -45,48 +44,35 @@ function App() {
     "50n":
       "https://images.pexels.com/photos/4969836/pexels-photo-4969836.jpeg?cs=srgb&dl=pexels-maria-orlova-4969836.jpg&fm=jpg",
   };
-  
-  useEffect(()=>{
 
-    
-    const success=(pos)=>{
-      const crd=pos.coords;
-      
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=9b5611f4042a3499eb3e641321928079`)
-      
-        .then(res=>{
-          
-          
-          setArea(res.data.weather[0].icon)
-          })
-       
-    }
+  useEffect(() => {
+    const success = (pos) => {
+      const crd = pos.coords;
+
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=9b5611f4042a3499eb3e641321928079`
+        )
+        .then((res) => {
+          setArea(res.data.weather[0].icon);
+        });
+    };
     navigator.geolocation.getCurrentPosition(success);
-    
-    
-  },[])
-
-
-
+  }, []);
   
   //para el cambio de fondo
-  let b="";
-    for(let i in areas){
-      if (i==area){
-        b=areas[i]
-      }
+  let background = "";
+  for (let i in areas) {
+    if (i == area) {
+      background = areas[i];
     }
+  }
 
-  
   return (
-    <div className="App" style={{backgroundImage: `url(${b})`}}>
-      <Card/>
-      
-      
+    <div className="App" style={{ backgroundImage: `url(${background})` }}>
+      <Card />
     </div>
-  )
+  );
 }
 
-export default App
-
-
+export default App;
