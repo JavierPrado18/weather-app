@@ -27,6 +27,16 @@
   display: flex;
   flex-wrap: wrap;
   text-align: left;
+
+}
+.weather div:first-child{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weather img{
+  
+  width: 100%;
 }
 .weather p:first-child{
   text-align: center;

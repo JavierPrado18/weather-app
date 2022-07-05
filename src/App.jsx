@@ -6,6 +6,7 @@ import Card from "./components/Card";
 
 function App() {
   const [area, setArea] = useState("");
+  
   const areas = {
     "01d":
       "https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?cs=srgb&dl=pexels-francesco-ungaro-281260.jpg&fm=jpg",

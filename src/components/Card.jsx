@@ -10,9 +10,7 @@ const Card = () => {
   const [isSpinner, SetIsSpinner] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      SetIsSpinner(false);
-    }, 1500);
+    
 
     const success = (pos) => {
       const crd = pos.coords;
@@ -25,8 +23,10 @@ const Card = () => {
         .then((res) => {
           setData(res.data);
           setTemperature((res.data.main.temp - 273.15).toFixed(2));
-        });
+        })
+        .finally(()=>SetIsSpinner(false))
     };
+
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
@@ -50,10 +50,11 @@ const Card = () => {
         {data.name} , {data.sys?.country}
       </h4>
       <div className="weather">
-        <img
-          src={`http://openweathermap.org/img/wn/${data.weather?.[0].icon}@2x.png`}
-          alt=""
-        />
+        
+        <div>
+          <img src={`http://openweathermap.org/img/wn/${data.weather?.[0].icon}@2x.png`}alt=""/>
+        </div>
+
         <div>
           <p>"{data.weather?.[0].description}"</p>
           <p>
