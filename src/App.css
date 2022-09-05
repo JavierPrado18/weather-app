@@ -1,0 +1,96 @@
+*{
+  margin: 0;
+}
+body{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.App {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.card{
+  color:#1F457E;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  
+  
+  background-color:rgba(212, 208, 208, 0.725);
+  border-radius: 6%;
+  padding:3%;
+  transition: all 0.3s;
+
+}
+
+.card h2{
+  margin: 20px;
+}
+.weather{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  justify-content: space-between;
+
+}
+
+
+
+.icon{
+  line-height: 0px;
+  text-align: center;
+  width: 45%;
+  color: black;
+  font-size: larger;
+}
+.icon img{
+  width: 100%;
+}
+.information{
+  margin-top:8% ;
+}
+.information h3{
+  text-transform:capitalize ;
+  margin-bottom: 10px;
+}
+.information i{
+  margin-right: 10px;
+}
+.card button{
+  margin-top: 10%;
+  border: none;
+  background-color: #1F457E;
+  color: white;
+  border-radius: 6px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+.card button:hover{
+  transition: all 0.3s;
+  background-color: white;
+  color: #1F457E;
+  font-weight: bolder;
+}
+
+/*Spinner*/
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
